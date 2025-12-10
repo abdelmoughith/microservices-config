@@ -7,7 +7,6 @@ spring:
 
   cloud:
     gateway:
-
       # Enable Eureka discovery for dynamic routing
       discovery:
         locator:
