@@ -10,15 +10,3 @@ eureka:
     fetch-registry: true
   instance:
     prefer-ip-address: true
-##### for sql cnfig
-spring:
-  datasource:
-    username: root
-    password: Db@12345
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-
