@@ -10,3 +10,7 @@ eureka:
     fetch-registry: true
   instance:
     prefer-ip-address: true
+
+server:
+  port: 8081
+
