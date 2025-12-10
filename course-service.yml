@@ -14,9 +14,3 @@ spring:
       ddl-auto: update
     show-sql: true
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:3334/eureka/
-  instance:
-    prefer-ip-address: true
