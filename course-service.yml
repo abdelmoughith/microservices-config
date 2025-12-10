@@ -6,7 +6,7 @@ spring:
     name: course-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/clientservicedb?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/course-service-db?createDatabaseIfNotExist=true
     username: root
     password: Db@12345
     driver-class-name: com.mysql.cj.jdbc.Driver
