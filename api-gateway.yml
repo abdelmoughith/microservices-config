@@ -55,7 +55,7 @@ springdoc:
     path: /swagger-ui.html   # where UI is accessible
     urls:
       - name: User Service
-        url: /users/v3/api-docs
+        url: /users/swagger-ui/index.html
       - name: Auth Service
         url: /auth/v3/api-docs
       - name: Course Service
