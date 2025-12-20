@@ -49,19 +49,3 @@ spring:
             - Path=/analytics/**
           filters:
             - StripPrefix=1
-
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html   # where UI is accessible
-    urls:
-      - name: User Service
-        url: /users/v3/api-docs
-      - name: Auth Service
-        url: /auth/v3/api-docs
-      - name: Course Service
-        url: /courses/v3/api-docs
-      - name: Activity Service
-        url: /activities/v3/api-docs
-      - name: Analytics Service
-        url: /analytics/v3/api-docs
-
