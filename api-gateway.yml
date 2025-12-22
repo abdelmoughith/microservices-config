@@ -1,75 +1,87 @@
+# ==============================
+# Server configuration
+# ==============================
 server:
   port: 8089
 
+# ==============================
+# Spring application
+# ==============================
 spring:
   application:
     name: api-gateway
 
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
+      server:
+        webflux:
 
-      # ==============================
-      # 🌍 Global CORS configuration
-      # (Handled ONLY at Gateway)
-      # ==============================
-      globalcors:
-        add-to-simple-url-handler-mapping: true
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins:
-              - http://localhost:5173
-              - http://localhost:3000
-              - http://10.80.65.69:3000
-              - http://10.80.65.69:5173
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - OPTIONS
-            allowedHeaders:
-              - "*"
-            allowCredentials: true
+          # ==============================
+          # Service discovery (Eureka)
+          # ==============================
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
 
-      # ==============================
-      # API Routes configuration
-      # ==============================
-      routes:
-        - id: user-service
-          uri: lb://user-service
-          predicates:
-            - Path=/users/**
-          filters:
-            - StripPrefix=1
+          # ==============================
+          # 🌍 Global CORS configuration
+          # (Handled ONLY at Gateway)
+          # ==============================
+          globalcors:
+            add-to-simple-url-handler-mapping: true
+            cors-configurations:
+              '[/**]':
+                allowed-origins:
+                  - http://localhost:5173
+                  - http://localhost:3000
+                  - http://10.80.65.69:3000
+                  - http://10.80.65.69:5173
+                allowed-methods:
+                  - GET
+                  - POST
+                  - PUT
+                  - DELETE
+                  - OPTIONS
+                allowed-headers:
+                  - "*"
+                allow-credentials: true
 
-        - id: auth-route
-          uri: lb://user-service
-          predicates:
-            - Path=/auth/**
-          filters:
-            - StripPrefix=1
+          # ==============================
+          # API Routes configuration
+          # ==============================
+          routes:
+            - id: user-service
+              uri: lb://user-service
+              predicates:
+                - Path=/users/**
+              filters:
+                - StripPrefix=1
 
-        - id: course-service
-          uri: lb://course-service
-          predicates:
-            - Path=/courses/**
-          filters:
-            - StripPrefix=1
+            - id: auth-route
+              uri: lb://user-service
+              predicates:
+                - Path=/auth/**
+              filters:
+                - StripPrefix=1
 
-        - id: activity-service
-          uri: lb://activity-service
-          predicates:
-            - Path=/activities/**
-          filters:
-            - StripPrefix=1
+            - id: course-service
+              uri: lb://course-service
+              predicates:
+                - Path=/courses/**
+              filters:
+                - StripPrefix=1
 
-        - id: analytics-service
-          uri: lb://analytics-service
-          predicates:
-            - Path=/analytics/**
-          filters:
-            - StripPrefix=1
+            - id: activity-service
+              uri: lb://activity-service
+              predicates:
+                - Path=/activities/**
+              filters:
+                - StripPrefix=1
+
+            - id: analytics-service
+              uri: lb://analytics-service
+              predicates:
+                - Path=/analytics/**
+              filters:
+                - StripPrefix=1
