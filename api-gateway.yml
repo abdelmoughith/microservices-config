@@ -3,6 +3,7 @@
 # ==============================
 server:
   port: 8089
+  address: 0.0.0.0   # allow access from other PCs
 
 # ==============================
 # Spring application
@@ -35,8 +36,8 @@ spring:
                 allowed-origins:
                   - http://localhost:5173
                   - http://localhost:3000
-                  - http://10.80.65.69:3000
                   - http://10.80.65.69:5173
+                  - http://10.80.65.69:3000
                 allowed-methods:
                   - GET
                   - POST
