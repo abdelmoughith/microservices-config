@@ -3,7 +3,7 @@
 # ==============================
 server:
   port: 8089
-  address: 0.0.0.0   # allow access from other PCs
+  address: 0.0.0.0   # allow access from other PCs in network
 
 # ==============================
 # Spring application
@@ -27,7 +27,6 @@ spring:
 
           # ==============================
           # 🌍 Global CORS configuration
-          # (Handled ONLY at Gateway)
           # ==============================
           globalcors:
             add-to-simple-url-handler-mapping: true
@@ -86,3 +85,18 @@ spring:
                 - Path=/analytics/**
               filters:
                 - StripPrefix=1
+
+# ==============================
+# Swagger aggregation for Gateway
+# ==============================
+springdoc:
+  swagger-ui:
+    urls:
+      - name: User Service
+        url: /users/v3/api-docs
+      - name: Course Service
+        url: /courses/v3/api-docs
+      - name: Activity Service
+        url: /activities/v3/api-docs
+      - name: Analytics Service
+        url: /analytics/v3/api-docs
