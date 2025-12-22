@@ -26,28 +26,6 @@ spring:
               lower-case-service-id: true
 
           # ==============================
-          # 🌍 Global CORS configuration
-          # ==============================
-          globalcors:
-            add-to-simple-url-handler-mapping: true
-            cors-configurations:
-              '[/**]':
-                allowed-origins:
-                  - http://localhost:5173
-                  - http://localhost:3000
-                  - http://10.80.65.69:5173
-                  - http://10.80.65.69:3000
-                allowed-methods:
-                  - GET
-                  - POST
-                  - PUT
-                  - DELETE
-                  - OPTIONS
-                allowed-headers:
-                  - "*"
-                allow-credentials: true
-
-          # ==============================
           # API Routes configuration
           # ==============================
           routes:
