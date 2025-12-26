@@ -1,6 +1,9 @@
 spring:
   application:
     name: default-app
+  #inside docker
+  config:
+    import: "configserver:http://config-server:8888"
 
 eureka:
   client:
